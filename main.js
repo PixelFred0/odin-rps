@@ -6,8 +6,10 @@ function getComputerChoice() {
     return choices[randNumber];
 }
 
-function singleGame(playerSelection, computerSelection) {
+function singleGame(playerSelection) {
     let lowerPlayerSelection = playerSelection.toLowerCase();
+    let computerSelection = getComputerChoice();
+    console.log(lowerPlayerSelection);
     if (lowerPlayerSelection == "rock") {
         if (computerSelection == "Rock") {
             return "Its a draw!"
@@ -41,22 +43,5 @@ function singleGame(playerSelection, computerSelection) {
     };
 }
 
-function game() {
-    let playerSelection = prompt("Your Choice: ")
-    console.log(singleGame(playerSelection, getComputerChoice()))
-    playerSelection = prompt("Your Choice: ")
-    console.log(singleGame(playerSelection, getComputerChoice()))
-    playerSelection = prompt("Your Choice: ")
-    console.log(singleGame(playerSelection, getComputerChoice()))
-    playerSelection = prompt("Your Choice: ")
-    console.log(singleGame(playerSelection, getComputerChoice()))
-    playerSelection = prompt("Your Choice: ")
-    console.log(singleGame(playerSelection, getComputerChoice()))
-    if (playerScore > computerScore) {
-        console.log("You Won! Your Score is ", playerScore)
-    } else {
-        console.log("You Lost! Your Score is ", playerScore)
-    }
-}
 
-game()
+

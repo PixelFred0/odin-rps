@@ -5,6 +5,14 @@ function getComputerChoice() {
     const randNumber = Math.floor(Math.random() * 3);
     return choices[randNumber];
 }
+function gameState(playerCounter, computerCounter) {
+    console.log("gamestate")
+    if (playerCounter === 5) {
+        document.getElementById("winner").innerHTML = `The Winner is the Player`;
+    } else if (computerCounter === 5) {
+        document.getElementById("winner").innerHTML = `The Winner is the Computer`;
+    }
+}
 
 function singleGame(playerSelection) {
     let lowerPlayerSelection = playerSelection.toLowerCase();
@@ -12,35 +20,42 @@ function singleGame(playerSelection) {
     console.log(lowerPlayerSelection);
     if (lowerPlayerSelection == "rock") {
         if (computerSelection == "Rock") {
-            return "Its a draw!"
+            console.log("Its a draw!")
         } else if (computerSelection == "Paper") {
             computerScore += 1
-            return "You Lose! Paper beats Rock"
+            document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
+            console.log("You Lose! Paper beats Rock")
         } else {
             playerScore += 1
-            return "You Win! Rock beats Scissors"
+            document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
+            console.log("You Win! Rock beats Scissors")
         };
     } else if (lowerPlayerSelection == "paper") {
         if (computerSelection == "Rock") {
             playerScore += 1
-            return "You Win! Paper beats Rock"
+            document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
+            console.log("You Win! Paper beats Rock")
         } else if (computerSelection == "Paper") {
-            return "Its a draw!"
+            console.log("Its a draw!")
         } else {
             computerScore += 1
-            return "You Lose! Scissors beats Paper"
+            document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
+            console.log("You Lose! Scissors beats Paper")
         };
-    } else {
+    } else if (lowerPlayerSelection == "scissors"){
         if (computerSelection == "Rock") {
-            computerScore += 1
-            return "You Lose! Rock beats Scissors"
+            computerScore +=1
+            document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
+            console.log("You Lose! Rock beats Scissors")
         } else if (computerSelection == "Paper") {
             playerScore += 1
-            return "You Win! Scissors beats Paper"
+            document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
+            console.log("You Win! Scissors beats Paper")
         } else {
-            return "Its a draw!"
+            console.log("Its a draw!")
         };
-    };
+    }; 
+    gameState(playerScore,computerScore);
 }
 
 

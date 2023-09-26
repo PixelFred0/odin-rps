@@ -8,9 +8,9 @@ function getComputerChoice() {
 function gameState(playerCounter, computerCounter) {
     console.log("gamestate")
     if (playerCounter === 5) {
-        document.getElementById("winner").innerHTML = `The Winner is the Player`;
+        document.getElementById("gameState").innerHTML = `The Winner is the Player`;
     } else if (computerCounter === 5) {
-        document.getElementById("winner").innerHTML = `The Winner is the Computer`;
+        document.getElementById("gameState").innerHTML = `The Winner is the Computer`;
     }
 }
 
@@ -20,39 +20,39 @@ function singleGame(playerSelection) {
     console.log(lowerPlayerSelection);
     if (lowerPlayerSelection == "rock") {
         if (computerSelection == "Rock") {
-            console.log("Its a draw!")
+            document.getElementById("winnerSingleRound").innerHTML = `Its a draw!`;
         } else if (computerSelection == "Paper") {
             computerScore += 1
             document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
-            console.log("You Lose! Paper beats Rock")
+            document.getElementById("winnerSingleRound").innerHTML = `You Lose! Paper beats Rock`;
         } else {
             playerScore += 1
             document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
-            console.log("You Win! Rock beats Scissors")
+            document.getElementById("winnerSingleRound").innerHTML = `You Win! Rock beats Scissors`;
         };
     } else if (lowerPlayerSelection == "paper") {
         if (computerSelection == "Rock") {
             playerScore += 1
             document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
-            console.log("You Win! Paper beats Rock")
+            document.getElementById("winnerSingleRound").innerHTML = `You Win! Paper beats Rock`;
         } else if (computerSelection == "Paper") {
-            console.log("Its a draw!")
+            document.getElementById("winnerSingleRound").innerHTML = `Its a draw!`;
         } else {
             computerScore += 1
             document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
-            console.log("You Lose! Scissors beats Paper")
+            document.getElementById("winnerSingleRound").innerHTML = `You Lose! Scissors beats Paper`;
         };
     } else if (lowerPlayerSelection == "scissors"){
         if (computerSelection == "Rock") {
             computerScore +=1
             document.getElementById("computerCounter").innerHTML = `Computer Counter: ${computerScore}`;
-            console.log("You Lose! Rock beats Scissors")
+            document.getElementById("winnerSingleRound").innerHTML = `You Lose! Rock beats Scissors`;
         } else if (computerSelection == "Paper") {
             playerScore += 1
             document.getElementById("playerCounter").innerHTML = `Player Counter: ${playerScore}`;
-            console.log("You Win! Scissors beats Paper")
+            document.getElementById("winnerSingleRound").innerHTML = `You Win! Scissors beats Paper`;
         } else {
-            console.log("Its a draw!")
+            document.getElementById("winnerSingleRound").innerHTML = `Its a draw!`;
         };
     }; 
     gameState(playerScore,computerScore);
